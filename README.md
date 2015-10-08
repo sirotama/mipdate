@@ -1,0 +1,2 @@
+# mipdate
+update_nameをmisskeyでするやつ
