@@ -1,2 +1,2 @@
 # mipdate
-update_nameをmisskeyでするやつ
+!!! WORK IN PROGRESS !!!
