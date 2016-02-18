@@ -6,6 +6,7 @@ import requests,re
 import json
 import sys
 import linecache
+import os
 
 VIEWS_DIR=linecache.getline('id',3).rstrip()
 
@@ -39,4 +40,4 @@ def changename():
 		post = requests.post(postAPIURL,cookies=cookie,data={'text' : '' + bottle.request.forms.get("name") + 'に改名させられました。' },headers={"csrf-token":csrf})
 		return render("change.jade")
 
-bottle.run(host='localhost', port=8080, debug=True, reloader=True)
+bottle.run(host='0.0.0.0', port=int(os.environ.get("PORT",8080)), reloader=True)
