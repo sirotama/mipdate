@@ -8,12 +8,12 @@ import sys
 import linecache
 import os
 
-VIEWS_DIR=linecache.getline('id',3).rstrip()
+VIEWS_DIR=os.environ.get("VIEWS_DIR",linecache.getline('id',3).rstrip())
 
 jade=bottle.install(JadePlugin(template_folder=VIEWS_DIR))
 
-ids = linecache.getline('id',1).rstrip()
-password = linecache.getline('id',2).rstrip()
+ids = os.environ.get("MISSKEY_SCREEN_NAME",linecache.getline('id',1).rstrip())
+password = os.environ.get("MISSKEY_PASSWORD",linecache.getline('id',2).rstrip())
 
 updateAPIURL = 'https://himasaku.misskey.xyz/account/name/update'
 postAPIURL= "https://himasaku.misskey.xyz/posts/create"
