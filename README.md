@@ -1,2 +1,2 @@
 # mipdate
-!!! WORK IN PROGRESS !!!
+@srtm‚Ì–¼‘O‚©‚¦‚é‚â‚Â
