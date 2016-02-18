@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import bottle
 from bottle_jade import JadePlugin
 import requests,re
@@ -34,6 +36,7 @@ def changename():
 		changedname = {'name': bottle.request.forms.get("name")}
 		change = requests.post(updateAPIURL,cookies=cookie,data=changedname,headers={"csrf-token":csrf} )
 
+		post = requests.post(postAPIURL,cookies=cookie,data={'text' : '' + bottle.request.forms.get("name") + 'に改名させられました。' },headers={"csrf-token":csrf})
 		return render("change.jade")
 
 bottle.run(host='localhost', port=8080, debug=True, reloader=True)
