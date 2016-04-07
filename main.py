@@ -15,13 +15,13 @@ jade=bottle.install(JadePlugin(template_folder=VIEWS_DIR))
 ids = os.environ.get("MISSKEY_SCREEN_NAME",linecache.getline('id',1).rstrip())
 password = os.environ.get("MISSKEY_PASSWORD",linecache.getline('id',2).rstrip())
 
-updateAPIURL = 'https://himasaku.misskey.xyz/account/name/update'
-postAPIURL= "https://himasaku.misskey.xyz/posts/create"
-res = requests.get("https://misskey.xyz/")
+updateAPIURL = 'http://himasaku.misskey.gakupuro.click/account/name/update'
+postAPIURL= "http://himasaku.misskey.gakupuro.click/posts/create"
+res = requests.get("http://misskey.gakupuro.click/")
 res.raise_for_status()
 cookie = {"hmsk":res.cookies["hmsk"]}
 csrf = re.search('<meta name="csrf-token" content="([A-Za-z0-9\\-_]+)">',res.text).group(1)
-res = requests.post("https://login.misskey.xyz/",headers={'csrf-token':csrf},data={"screen-name":ids,"password":password},cookies = cookie)
+res = requests.post("http://login.misskey.gakupuro.click/",headers={'csrf-token':csrf},data={"screen-name":ids,"password":password},cookies = cookie)
 res.raise_for_status()
 
 def render(jadename,jadeopts={}):
